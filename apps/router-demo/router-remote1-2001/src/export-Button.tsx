@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from './button';
 import { createBridgeComponent } from '@module-federation/bridge-react';
 
