@@ -40,7 +40,7 @@
     "tsup": "7.3.0"
   },
   "scripts": {
-    "build": "tsup --config tsup.config.ts --outDir dist && tsc -p tsconfig.lib.json && cp package.json dist && cp *.md dist",
+    "build": "tsup --config tsup.config.ts --outDir dist && tsc -p tsconfig.lib.json && node -e \"const fs=require('fs'); const path=require('path'); fs.mkdirSync('dist',{recursive:true}); for (const file of fs.readdirSync('.')) { if (file === 'package.json' || file.endsWith('.md')) { fs.copyFileSync(file, path.join('dist', file)); } }\"",
     "lint": "ESLINT_USE_FLAT_CONFIG=false pnpm exec eslint --ignore-pattern node_modules \"**/*.ts\"",
     "test": "pnpm exec rstest --passWithNoTests",
     "pre-release": "pnpm run test && pnpm run build"

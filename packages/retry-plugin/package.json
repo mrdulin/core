@@ -42,7 +42,7 @@
     "@module-federation/sdk": "workspace:*"
   },
   "scripts": {
-    "build": "tsdown --config tsdown.config.ts && cp *.md dist",
+    "build": "tsdown --config tsdown.config.ts && node -e \"const fs = require('fs'); const path = require('path'); fs.mkdirSync('dist', { recursive: true }); for (const file of fs.readdirSync('.').filter((file) => file.endsWith('.md'))) fs.copyFileSync(file, path.join('dist', file));\"",
     "test": "rstest -u",
     "lint": "ESLINT_USE_FLAT_CONFIG=false pnpm exec eslint --ignore-pattern node_modules \"**/*.ts\" \"package.json\"",
     "build-debug": "FEDERATION_DEBUG=true pnpm run build",

@@ -1,12 +1,11 @@
-import { join } from 'path';
 import { defineConfig } from 'tsup';
 
 const shared = {
-  entry: [join(__dirname, 'src', 'index.ts')],
+  entry: ['src/index.ts'],
   dts: false,
   splitting: true,
-  outDir: join('packages', 'third-party-dts-extractor', 'dist'),
-  external: [join(__dirname, 'package.json')],
+  outDir: 'dist',
+  external: ['package.json'],
 };
 
 export default defineConfig([

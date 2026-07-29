@@ -54,6 +54,7 @@
       "cache": false
     },
     "serve": {
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },

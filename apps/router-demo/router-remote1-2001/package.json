@@ -4,10 +4,10 @@
   "version": "1.0.34",
   "scripts": {
     "dev": "rsbuild dev",
-    "build": "DEBUG=true rsbuild build",
+    "build": "node -e \"process.env.DEBUG = 'true'; require('child_process').execSync('rsbuild build', { stdio: 'inherit' });\"",
     "preview": "rsbuild preview",
     "test": "pnpm exec vitest --passWithNoTests",
-    "serve": "pnpm run dev"
+    "serve": "rsbuild dev"
   },
   "dependencies": {
     "@module-federation/bridge-react": "workspace:*",

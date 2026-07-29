@@ -1,11 +1,28 @@
 import { Image } from 'antd';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import type { ComponentType, ReactNode } from 'react';
+import {
+  BrowserRouter,
+  Link,
+  Route as ReactRouterRoute,
+  Switch as ReactRouterSwitch,
+} from 'react-router-dom';
 import {
   StyleProvider,
   legacyLogicalPropertiesTransformer,
 } from '@ant-design/cssinjs';
 import { useShadowRoot } from 'react-shadow';
 import { Table } from 'antd';
+
+type RouterChildrenProps = {
+  children?: ReactNode;
+};
+
+type RouterRouteProps = RouterChildrenProps & {
+  path?: string;
+};
+
+const Switch = ReactRouterSwitch as unknown as ComponentType<RouterChildrenProps>;
+const Route = ReactRouterRoute as unknown as ComponentType<RouterRouteProps>;
 
 const dataSource = [
   {

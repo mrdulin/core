@@ -1,10 +1,26 @@
-import { Suspense, useMemo, useState } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import type { ComponentType, ReactNode } from 'react';
+import { Suspense, useState } from 'react';
+import {
+  BrowserRouter,
+  Route as ReactRouterRoute,
+} from 'react-router-dom';
 import './App.css';
 import Navigation from './navigation';
 import Home from './pages/Home';
 import { loadRemote } from '@module-federation/enhanced/runtime';
 import { createRemoteAppComponent } from '@module-federation/bridge-react';
+
+type RouterChildrenProps = {
+  children?: ReactNode;
+};
+
+type RouterRouteProps = RouterChildrenProps & {
+  exact?: boolean;
+  path?: string;
+  render?: () => ReactNode;
+};
+
+const Route = ReactRouterRoute as unknown as ComponentType<RouterRouteProps>;
 
 const FallbackErrorComp = (info: any) => {
   return <div>{info?.error?.message}</div>;

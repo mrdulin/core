@@ -9,6 +9,10 @@ export default defineConfig({
     alias: {
       react: path.resolve(__dirname, 'node_modules/react'),
       'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+      '@module-federation/retry-plugin$': path.resolve(
+        __dirname,
+        '../../../packages/retry-plugin/src/index.ts',
+      ),
     },
   },
   server: {

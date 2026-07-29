@@ -7,7 +7,7 @@
     "build": "rsbuild build",
     "preview": "rsbuild preview",
     "test": "pnpm exec vitest --passWithNoTests",
-    "serve": "pnpm run dev"
+    "serve": "rsbuild dev"
   },
   "dependencies": {
     "@module-federation/bridge-vue3": "workspace:*",
