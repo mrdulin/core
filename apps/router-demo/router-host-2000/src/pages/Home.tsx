@@ -87,10 +87,12 @@ const data: DataType[] = [
 ];
 
 const Remote1Button = createRemoteAppComponent<any, any>({
-  loader: () => loadRemote('remote1/export-button'),
+  // loader: () => loadRemote('remote1/export-button'),
+  loader: () => loadRemote('remote1/export-app'),
   // @ts-ignore
   fallback: null,
   loading: null,
+  export: 'button',
 });
 
 const Home: React.FC = () => {

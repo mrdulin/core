@@ -75,6 +75,7 @@ const Remote1App = createRemoteAppComponent({
   loader: () => loadRemote('remote1/export-app'),
   fallback: FallbackErrorComp,
   loading: FallbackComp,
+  export: 'app',
 });
 
 const Remote5App = createRemoteAppComponent({

@@ -1,8 +1,11 @@
 import App from './App';
 import { createBridgeComponent } from '@module-federation/bridge-react';
+import Button from './button';
 
-const provider = createBridgeComponent({
+export const app = createBridgeComponent({
   rootComponent: App,
 });
 
-export default provider;
+export const button = createBridgeComponent({
+  rootComponent: Button,
+});
