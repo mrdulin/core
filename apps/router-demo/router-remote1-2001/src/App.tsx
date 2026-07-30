@@ -1,5 +1,6 @@
 import { Image } from 'antd';
 import type { ComponentType, ReactNode } from 'react';
+import * as icons from '@d-matrix/icons-react';
 import {
   BrowserRouter,
   Link,
@@ -21,7 +22,8 @@ type RouterRouteProps = RouterChildrenProps & {
   path?: string;
 };
 
-const Switch = ReactRouterSwitch as unknown as ComponentType<RouterChildrenProps>;
+const Switch =
+  ReactRouterSwitch as unknown as ComponentType<RouterChildrenProps>;
 const Route = ReactRouterRoute as unknown as ComponentType<RouterRouteProps>;
 
 const dataSource = [
@@ -60,7 +62,10 @@ const columns = [
 function Home({ name, age }: { name: string; age: number }) {
   return (
     <div>
-      <h2>Remote1 home page</h2>
+      <h2>
+        Remote1 home page
+        <icons.new.AChartRadarFilled />
+      </h2>
       <h3>
         name: {name}, age: {age}
       </h3>
